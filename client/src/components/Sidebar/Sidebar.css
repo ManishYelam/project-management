@@ -1,0 +1,41 @@
+/* src/components/Sidebar.css */
+.sidebar {
+    width: 3vw;
+    height: 100vh;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+  
+  .sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    width: 3%;
+  }
+  
+  .sidebar-menu li {
+    width: 10%;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px ;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+  

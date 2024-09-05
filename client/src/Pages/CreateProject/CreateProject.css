@@ -1,0 +1,118 @@
+.create-project {
+    background-image: url('../../assets/Header-bg.svg');
+    height: 17vh;
+    width: 97vw;
+    background-size: cover;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 100px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    margin-left: 30px;
+    display: grid;
+    width: 86vw;
+    background-color: #fff;
+    border-radius: 8px;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 25px;
+    row-gap: 8px;
+    padding: 40px;
+}
+
+.form-grid-projecttheme {
+    height: 70px;
+    border-radius: 5px;
+    grid-column: span 8;
+}
+.form-grid-reason {
+    grid-column: span 4;
+    grid-row: 2/3;
+}
+.form-grid-category {
+    grid-column: span 4;
+    grid-row: 3/4;
+}
+.form-grid-startdate {
+    grid-column: span 4;
+    grid-row: 4/5;
+}
+.form-grid-type {
+    grid-column: span 4;
+    grid-row: 2/3;
+}
+.form-grid-priority {
+    grid-column: span 4;
+    grid-row: 3/4;
+}
+.form-grid-enddate {
+    grid-column: span 4;
+    grid-row: 4/5;
+}
+.form-grid-division {
+    grid-column: span 4;
+    grid-row: 2/3;
+}
+.form-grid-department {
+    grid-column: span 4;
+    grid-row: 3/4;
+}
+.form-grid-location {
+    grid-column: span 4;
+    grid-row: 4/5;
+}
+.grid-btn {
+    grid-column-start: 12;
+    grid-column-end: 15;  
+}
+.grid-status {
+    grid-column-start: 9;
+    grid-column-end: 12;
+    grid-row: 5/6;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.react-select__control {
+    min-height: 38px;
+}
+
+.react-datepicker-wrapper {
+    display: block;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:focus {
+    outline: none;
+}
+
+.dash-btn {
+    width: 60%;
+    padding: 10px;
+    background-color: #0470D2;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }

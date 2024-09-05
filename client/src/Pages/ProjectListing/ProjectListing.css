@@ -1,0 +1,133 @@
+.project-listing {
+    margin-top: 0;
+    background-image: url('../../assets/Header-bg.svg');
+    height: 20vh;
+    width: 97vw;
+    background-size: cover;
+    padding: 16px 0;
+    margin-bottom: 18px;
+    margin-left: 30px;
+    position: relative; /* Allows for positioning children correctly if needed */
+  }
+  
+  .project-listing h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: left; /* Center text inside the container */
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    margin-left: 10px; /* Adjust spacing between elements */
+  }
+  
+  .list-container {
+    height: 80vh;
+    width: calc(100% - 60px); /* Adjusted to accommodate the margin-left */
+    background-color: #fff;
+    border-radius: 5px;
+    margin-left: 30px;
+    padding: 18px; /* Added padding for better spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for better separation */
+    box-sizing: border-box; /* Ensures padding is included in width/height */
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically centered */
+    margin-bottom: 20px;
+  }
+  
+  input {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ddd; /* Added border for better visibility */
+    border-radius: 4px; /* Rounded corners for input */
+  }
+  
+  .sort-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .sort-container label {
+    margin-right: 10px;
+    font-size: 16px; /* Added font size for consistency */
+  }
+  
+  select {
+    padding: 8px;
+    border: 1px solid #ddd; /* Added border for better visibility */
+    border-radius: 4px; /* Rounded corners for select */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px; /* Increased padding for better readability */
+    font-size: 0.9rem; /* Slightly larger font size for better readability */
+    text-align: left; /* Ensure text is aligned left */
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 4px; /* Rounded corners for pagination buttons */
+    padding: 6px 12px; /* Added padding for better click area */
+  }
+  
+  .pagination button.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .pagination button:hover {
+    background-color: #eaeaea;
+  }
+  
+  .list-btn {
+    margin: 2px;
+    padding: 6px 12px; /* Increased padding for better click area */
+    background-color: #fff;
+    color: #004494; 
+    border: 1px solid #004494;
+    border-radius: 20px;
+    font-size: 12px; /* Slightly larger font size for better readability */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .list-btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+  }
+  
+  .list-btn:active {
+    background-color: #fff;
+    color: #004494;
+  }
+  
