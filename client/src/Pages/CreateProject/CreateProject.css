@@ -115,4 +115,58 @@ button:focus {
     border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
-  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .create-project {
+        width: 100vw;
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .logo-container {
+        text-align: center;
+    }
+
+    .logo {
+        max-width: 80px;
+    }
+
+    .form-grid {
+        margin-left: 0;
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 20px;
+    }
+
+    .form-grid-projecttheme,
+    .form-grid-reason,
+    .form-grid-type,
+    .form-grid-division,
+    .form-grid-category,
+    .form-grid-priority,
+    .form-grid-enddate,
+    .form-grid-department,
+    .form-grid-startdate,
+    .form-grid-location {
+        grid-column: span 1;
+    }
+
+    .grid-btn {
+        grid-column: span 1;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .grid-status {
+        grid-column: span 1;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .react-select__control {
+        min-height: 36px;
+    }
+}

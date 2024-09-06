@@ -91,3 +91,80 @@
     background-color: #a9a9a9;
   }
   
+
+  /* Mobile view adjustments */
+@media (max-width: 768px) {
+  .login-page {
+    padding: 20px;
+    background-position: center; /* Ensures background is centered */
+    background-size: cover; /* Makes sure background image covers the entire page */
+  }
+
+  .logo {
+    width: 80px; /* Reduce the logo size for smaller screens */
+    padding-top: 10px;
+  }
+
+  .app-title {
+    font-size: 18px; /* Slightly reduce the title size */
+  }
+
+  .login-container {
+    width: 100%;
+    max-width: 100%; /* Take full width on mobile devices */
+    padding: 15px; /* Add more padding for mobile */
+    box-shadow: none; /* Reduce the shadow effect on mobile for a cleaner look */
+    border-radius: 10px; /* Make the container's edges more rounded */
+  }
+
+  .login-container h2 {
+    font-size: 22px; /* Adjust font size of header */
+    margin-bottom: 15px; /* Slightly reduce the margin */
+  }
+
+  .form-group input {
+    padding: 10px; /* Slightly smaller input fields for mobile */
+  }
+
+  .forgot-password-link {
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .log-btn {
+    padding: 12px; /* Increase button padding */
+    font-size: 18px; /* Increase font size for better tap targets */
+  }
+
+  .error-message {
+    font-size: 14px; /* Smaller font for error messages */
+    padding: 5px; /* Add some padding to error messages */
+  }
+}
+
+/* Very small devices */
+@media (max-width: 480px) {
+  .logo {
+    width: 70px; /* Further reduce logo size for very small screens */
+  }
+
+  .app-title {
+    font-size: 16px; /* Further reduce title size */
+  }
+
+  .login-container {
+    padding: 10px; /* Less padding for smaller screens */
+  }
+
+  .login-container h2 {
+    font-size: 20px; /* Slightly reduce header size */
+  }
+
+  .log-btn {
+    padding: 10px; /* Smaller padding for the button */
+    font-size: 16px; /* Smaller font size for button */
+  }
+
+  .forgot-password-link {
+    font-size: 12px; /* Smaller font size for the link */
+  }
+}
