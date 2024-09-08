@@ -17,3 +17,4 @@ const PaginationButtons = ({ count, page, onPageChange }) => {
 };
 
 export default PaginationButtons;
+a

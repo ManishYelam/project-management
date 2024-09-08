@@ -4,9 +4,12 @@ import Select from 'react-select';
 import 'react-datepicker/dist/react-datepicker.css';
 import './CreateProject.css';
 import logo from '../../assets/Logo.svg';
-import Sidebar from '../../components/Sidebar/Sidebar';
 import axios from 'axios';
+import { Navbar, Nav, Button, Collapse } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Sidebar from '../../components/Sidebar/Sidebar';
 
+// Project options
 const projectTypes = [
   { value: 'web', label: 'Web Development' },
   { value: 'mobile', label: 'Mobile Development' },
@@ -46,6 +49,7 @@ const CreateProject = () => {
   const [endDate, setEndDate] = useState(null);
   const [location, setLocation] = useState('');
   const [status, setStatus] = useState('Pending');
+  const [open, setOpen] = useState(false); // Navbar toggle state
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,15 +62,14 @@ const CreateProject = () => {
       category: category?.value,
       priority: priority?.value,
       department: department?.value,
-      startDate: startDate ? startDate.toISOString().split('T')[0] : null, // Format as YYYY-MM-DD
-      endDate: endDate ? endDate.toISOString().split('T')[0] : null,      // Format as YYYY-MM-DD
+      startDate: startDate ? startDate.toISOString().split('T')[0] : null,
+      endDate: endDate ? endDate.toISOString().split('T')[0] : null,
       location,
-      status: "Registered",
+      status: 'Registered',
     };
 
     try {
       const response = await axios.post('http://localhost:5000/api/project', newProject);
-
       console.log(response.data);
       alert('Project created successfully!');
       setStatus('Registered');
@@ -79,131 +82,157 @@ const CreateProject = () => {
 
   return (
     <>
-      <Sidebar />
-      <div className="create-project">
-        <div className="logo-container">
-          <img src={logo} alt="Logo" className="logo" />
-        </div>
-        <form onSubmit={handleSubmit}>
-          <div className="form-grid">
-            <div className="form-grid-projecttheme form-group">
-              <input
-                type="text"
-                id="projectTheme"
-                value={projectTheme}
-                onChange={(e) => setProjectTheme(e.target.value)}
-                placeholder="Enter Project Theme"
-                className="form-grid-projecttheme"
-                required
-              />
-            </div>
-            <div className="form-grid-reason form-group">
-              <label htmlFor="reason">Reason</label>
-              <input
-                type="text"
-                id="reason"
-                value={reason}
-                onChange={(e) => setReason(e.target.value)}
-                required
-              />
-            </div>
-            <div className="form-grid-type form-group">
-              <label htmlFor="projectType">Type</label>
-              <Select
-                id="projectType"
-                options={projectTypes}
-                value={projectType}
-                onChange={setProjectType}
-                placeholder="Select project type"
-                required
-              />
-            </div>
-            <div className="form-grid-division form-group">
-              <label htmlFor="division">Division</label>
-              <Select
-                id="division"
-                options={divisions}
-                value={division}
-                onChange={setDivision}
-                placeholder="Select division"
-                required
-              />
-            </div>
-            <div className="form-grid-category form-group">
-              <label htmlFor="category">Category</label>
-              <Select
-                id="category"
-                options={categories}
-                value={category}
-                onChange={setCategory}
-                placeholder="Select category"
-                required
-              />
-            </div>
-            <div className="form-grid-priority form-group">
-              <label htmlFor="priority">Priority</label>
-              <Select
-                id="priority"
-                options={priorities}
-                value={priority}
-                onChange={setPriority}
-                placeholder="Select priority"
-                required
-              />
-            </div>
-            <div className="form-grid-department form-group">
-              <label htmlFor="department">Department</label>
-              <Select
-                id="department"
-                options={departments}
-                value={department}
-                onChange={setDepartment}
-                placeholder="Select department"
-                required
-              />
-            </div>
-            <div className="form-grid-startdate form-group">
-              <label htmlFor="startDate">Start Date as per Project Plan</label>
-              <DatePicker
-                id="startDate"
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                dateFormat="yyyy/MM/dd"
-                placeholderText="Select start date"
-                required
-              />
-            </div>
-            <div className="form-grid-enddate form-group">
-              <label htmlFor="endDate">End Date as per Project Plan</label>
-              <DatePicker
-                id="endDate"
-                selected={endDate}
-                onChange={(date) => setEndDate(date)}
-                dateFormat="yyyy/MM/dd"
-                placeholderText="Select end date"
-                required
-              />
-            </div>
-            <div className="form-grid-location form-group">
-              <label htmlFor="location">Location</label>
-              <input
-                type="text"
-                id="location"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                required
-              />
-            </div>
-            <div className="grid-btn">
-              <button className="dash-btn" type="submit">
-                Save Project
-              </button>
-            </div>
-            <div className="form-group grid-status">
-              <label>Status: {status}</label>
+      <div className="container-fluid">
+        <Sidebar />
+        <div className="row">
+          {/* Create Project Form */}
+          <div className="col-md-12">
+            <div className="create-project">
+              <div className="logo-container d-flex text-center mb-4 px-4 py-2">
+                <img src={logo} alt="Logo" className="logo" />
+              </div>
+              <div className="container-fluid bg-white p-4 rounded-4">
+                <form onSubmit={handleSubmit} className="form-horizontal">
+                  <div className="row">
+                    <div className="col-md-6 mb-5">
+                      <input
+                        type="text"
+                        id="projectTheme"
+                        value={projectTheme}
+                        onChange={(e) => setProjectTheme(e.target.value)}
+                        placeholder="Enter Project Theme"
+                        className="form-control"
+                        required
+                      />
+                    </div>
+
+                    <div className="col-6 mb-5 text-end">
+                      <button className="btn btn-primary rounded-pill" type="submit">
+                        Save Project
+                      </button>
+                    </div>
+
+                    <div className="col-md-3 mb-3">
+                      <label htmlFor="projectType">Reason for Project</label>
+                      <input
+                        type="text"
+                        id="reason"
+                        value={reason}
+                        onChange={(e) => setReason(e.target.value)}
+                        placeholder="Reason for Project"
+                        className="form-control"
+                        required
+                      />
+                    </div>
+
+                    <div className="col-md-3 mb-3">
+                      <label htmlFor="projectType">Type</label>
+                      <Select
+                        id="projectType"
+                        options={projectTypes}
+                        value={projectType}
+                        onChange={setProjectType}
+                        placeholder="Select project type"
+                        required
+                      />
+                    </div>
+
+                    <div className="col-md-3 mb-3">
+                      <label htmlFor="division">Division</label>
+                      <Select
+                        id="division"
+                        options={divisions}
+                        value={division}
+                        onChange={setDivision}
+                        placeholder="Select division"
+                        required
+                      />
+                    </div>
+
+                    <div className="col-md-3 mb-3">
+                      <label htmlFor="category">Category</label>
+                      <Select
+                        id="category"
+                        options={categories}
+                        value={category}
+                        onChange={setCategory}
+                        placeholder="Select category"
+                        required
+                      />
+                    </div>
+
+                    <div className="col-md-3 mb-3">
+                      <label htmlFor="priority">Priority</label>
+                      <Select
+                        id="priority"
+                        options={priorities}
+                        value={priority}
+                        onChange={setPriority}
+                        placeholder="Select priority"
+                        required
+                      />
+                    </div>
+
+                    <div className="col-md-3 mb-3">
+                      <label htmlFor="department">Department</label>
+                      <Select
+                        id="department"
+                        options={departments}
+                        value={department}
+                        onChange={setDepartment}
+                        placeholder="Select department"
+                        required
+                      />
+                    </div>
+
+                    <div className="col-md-3 mb-3">
+                      <label htmlFor="startDate">Start Date</label>
+                      <DatePicker
+                        id="startDate"
+                        selected={startDate}
+                        onChange={(date) => setStartDate(date)}
+                        dateFormat="yyyy/MM/dd"
+                        placeholderText="Select start date"
+                        className="form-control"
+                        required
+                      />
+                    </div>
+
+                    <div className="col-md-3 mb-3">
+                      <label htmlFor="endDate">End Date</label>
+                      <DatePicker
+                        id="endDate"
+                        selected={endDate}
+                        onChange={(date) => setEndDate(date)}
+                        dateFormat="yyyy/MM/dd"
+                        placeholderText="Select end date"
+                        className="form-control"
+                        required
+                      />
+                    </div>
+
+                    <div className="col-md-4 mb-3">
+                      <label htmlFor="location">Location</label>
+                      <input
+                        type="text"
+                        id="location"
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        placeholder="Enter location"
+                        className="form-control"
+                        required
+                      />
+                    </div>
+
+                    <div className="col-md-12 mt-3">
+                      <p>Status: {status}</p>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </>
   );

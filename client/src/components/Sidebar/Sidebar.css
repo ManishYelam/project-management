@@ -1,7 +1,5 @@
 /* Default (Desktop) Styles */
 .sidebar {
-  width: 40px; /* Adjust as needed */
-  height: 100vh;
   background-color: #fff;
   position: fixed;
   top: 0;
@@ -11,20 +9,11 @@
   align-items: flex-start;
   padding-top: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: Shadow for better visual separation */
+  height: 100vh;
+  width: 30px; /* Adjust width as needed */
 }
 
-.sidebar-menu {
-  list-style-type: none;
-  padding: 0;
-  width: 100%;
-}
-
-.sidebar-menu li {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.sidebar-menu li a {
+.nav-link {
   text-decoration: none;
   color: black; /* Change to color you prefer */
   font-size: 18px;
@@ -40,43 +29,28 @@
   margin-right: 10px;
 }
 
+/* Mobile Styles */
+.navbar-nav {
+  width: 100%;
+}
+
+.navbar-nav .nav-item {
+  flex: 1;
+  text-align: center;
+}
+
+.navbar-nav .nav-link {
+  padding: 10px;
+}
+
+.navbar-nav .menu-icon {
+  width: 20px;
+  height: 20px;
+}
+
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%;
-    height: 60px; /* Adjust height as needed */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    display: none;
     background-color: #fff;
-    border-top: 1px solid #ddd; /* Optional: Add border to separate from content */
-    z-index: 1000; /* Ensure the sidebar is above other content */
-  }
-
-  .sidebar-menu {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-  }
-
-  .sidebar-menu li {
-    flex: 1; /* Equal width for each item */
-    text-align: center;
-  }
-
-  .sidebar-menu li a {
-    padding: 10px;
-  }
-
-  .menu-icon {
-    width: 20px;
-    height: 20px;
   }
 }
